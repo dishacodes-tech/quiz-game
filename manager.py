@@ -2,7 +2,8 @@ import json
 import os
 from datetime import datetime
 
-score_file = os.path.join(os.path.dirname(__file__), "score.json")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+score_file = os.path.join(BASE_DIR, "score.json")
 
 
 def load_high_score():
