@@ -8,7 +8,7 @@ score_file = os.path.join(BASE_DIR, "score.json")
 
 def load_high_score():
     if not os.path.exists(score_file):
-        data = {"high_score": 0, "score_time": None}
+        data = {"high_score": 0, "score_date": None}
         with open(score_file, "w") as f:
             json.dump(data, f, indent=4)
         return 0, None
@@ -16,7 +16,7 @@ def load_high_score():
     try:
         with open(score_file, "r") as f:
             data = json.load(f)
-            return data.get("high_score", 0), data.get("score_time", None)
+            return data.get("high_score", 0), data.get("score_date", None)
 
     except json.JSONDecodeError:
         return 0, None
